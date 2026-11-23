@@ -1,0 +1,85 @@
+:root {
+  --dusk-blue: #4e598c;
+  --white: #ffffff;
+  --apricot-cream: #f9c784;
+  --sandy-brown: #fcaf58;
+  --pumpkin-spice: #ff8c42;
+
+  /* Fond dérivé du dusk-blue (plus sombre) */
+  --bg: color-mix(in srgb, var(--dusk-blue) 55%, #000);
+  --text-muted: color-mix(in srgb, var(--white) 70%, transparent);
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--white);
+  background-color: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  font-weight: 500;
+  color: var(--sandy-brown);
+  text-decoration: inherit;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--white);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--white);
+  background-color: var(--dusk-blue);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.2s;
+}
+button:hover {
+  border-color: var(--sandy-brown);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--apricot-cream);
+  outline-offset: 2px;
+}

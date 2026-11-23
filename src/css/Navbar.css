@@ -1,0 +1,52 @@
+.navbar {
+  background-color: var(--dusk-blue);
+  border-bottom: 3px solid var(--pumpkin-spice);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Le logo « Movie App » (premier groupe de liens) */
+.navbar-links:first-child a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--apricot-cream);
+}
+
+.nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: var(--white);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: var(--sandy-brown);
+  color: var(--bg);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-links:first-child a {
+    font-size: 1.2rem;
+  }
+
+  .navbar-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem;
+  }
+}
