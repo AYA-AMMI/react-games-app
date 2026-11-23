@@ -1,27 +1,27 @@
-import MovieCard from "../components/MovieCard";
+import GameCard from "../components/GameCard";
 import { useState, useEffect } from "react";
 import "../css/Home.css";
-import { searchMovies, getPopularMovies } from "../services/api";
+import { searchGames, getPopularGames } from "../services/api";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [movies, setMovies] = useState([]);
+  const [games, setGames] = useState([]);
   const [error, setError] = useState(null); //pour stocker n'importe quel erreur potentiel
   const [loading, setLoading] = useState(true); //pour stocker les état de chargement
 
   useEffect(() => {
-    const loadPopularMovies = async () => {
+    const loadPopularGames = async () => {
       try {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
+        const popularGames = await getPopularGames();
+        setGames(popularGames);
       } catch (e) {
         console.log(e);
-        setError("Failed to load movies");
+        setError("Failed to load games");
       } finally {
         setLoading(false);
       }
     };
-    loadPopularMovies();
+    loadPopularGames();
   }, []);
 
   const handleSearch = async (e) => {
@@ -32,12 +32,12 @@ function Home() {
 
     try {
       const results = query
-        ? await searchMovies(query)
-        : await getPopularMovies();
-      setMovies(results);
+        ? await searchGames(query)
+        : await getPopularGames();
+      setGames(results);
     } catch (e) {
       console.log(e);
-      setError("Failed to search movies");
+      setError("Failed to load games");
     } finally {
       setLoading(false);
     }
@@ -48,7 +48,7 @@ function Home() {
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
-          placeholder="Search for movies..."
+          placeholder="Search for games..."
           className="search-input"
           value={searchQuery}
           onChange={(e) => {
@@ -62,12 +62,12 @@ function Home() {
       {error && <div className="error-message">{error}</div>}
       {loading ? (
         <div className="loading">loading...</div>
-      ) : movies.length === 0 ? (
-        <div className="loading">No movies found for “{searchQuery}”</div>
+      ) : games.length === 0 ? (
+        <div className="loading">No games found for “{searchQuery}”</div>
       ) : (
-        <div className="movies-grid">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
+        <div className="games-grid">
+          {games.map((game) => (
+            <GameCard game={game} key={game.id} />
           ))}
         </div>
       )}

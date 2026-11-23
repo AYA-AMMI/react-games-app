@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MovieContext } from "./MovieContext";
+import { GameContext } from "./GameContext";
 
 const loadFavorites = () => {
   try {
@@ -10,28 +10,28 @@ const loadFavorites = () => {
   }
 };
 
-export const MovieProvider = ({ children }) => {
+export const GameProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(loadFavorites);
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
-  const addToFavorites = (movie) => {
-    setFavorites((prev) => [...prev, movie]);
+  const addToFavorites = (game) => {
+    setFavorites((prev) => [...prev, game]);
   };
 
-  const removeFromFavorites = (movieId) => {
-    setFavorites((prev) => prev.filter((movie) => movie.id !== movieId));
+  const removeFromFavorites = (gameId) => {
+    setFavorites((prev) => prev.filter((game) => game.id !== gameId));
   };
 
-  const isFavorite = (movieId) => {
-    return favorites.some((movie) => movie.id === movieId);
+  const isFavorite = (gameId) => {
+    return favorites.some((game) => game.id === gameId);
   };
 
   const value = { favorites, addToFavorites, removeFromFavorites, isFavorite };
 
   return (
-    <MovieContext.Provider value={value}>{children}</MovieContext.Provider>
+    <GameContext.Provider value={value}>{children}</GameContext.Provider>
   );
 };

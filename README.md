@@ -1,36 +1,39 @@
-# Movie App
+# Games App
 
-Application web de recherche de films et de gestion de favoris, construite avec React et l'API TMDB.
+Application web de recherche de jeux vidéo et de gestion de favoris, construite avec React et l'API RAWG.
 
 ![Aperçu de l'application](./docs/image.png)
 
 ## Fonctionnalités
 
-- Liste des films populaires
-- Recherche de films par titre
+- Liste des jeux populaires
+- Recherche de jeux par titre
+- Affichage de l'image, de l'année de sortie et de la note de chaque jeu
 - Ajout et retrait de favoris, sauvegardés dans le navigateur (localStorage)
 - Gestion des états de chargement et d'erreur
 - Interface responsive
 
 ## Stack technique
 
-React 19 · Vite · React Router · Context API · API TMDB
+React 19 · Vite · React Router · Context API · API RAWG
 
 ## Installation
 
 ```bash
-git clone https://github.com/AYA-AMMI/react-movie-app.git
-cd react-movie-app
+git clone https://github.com/AYA-AMMI/react-games-app.git
+cd react-games-app
 npm install
 cp .env.example .env
 npm run dev
 ```
 
+Renseignez ensuite votre clé dans le fichier `.env`.
+
 ## Variables d'environnement
 
-| Variable            | Description                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------- |
-| `VITE_TMDB_API_KEY` | Clé API gratuite, à créer sur [themoviedb.org](https://www.themoviedb.org/settings/api) |
+| Variable            | Description                                                              |
+| ------------------- | ------------------------------------------------------------------------ |
+| `VITE_RAWG_API_KEY` | Clé API gratuite, à créer sur [rawg.io/apidocs](https://rawg.io/apidocs) |
 
 ## Scripts
 
@@ -44,22 +47,24 @@ npm run dev
 
 ```
 src/
-├── components/   # MovieCard, NavBar
-├── contexts/     # MovieContext (hook), MovieProvider (favoris)
+├── components/   # GameCard, NavBar
+├── contexts/     # GameContext (hook), GameProvider (favoris)
 ├── pages/        # Home, Favorites
-├── services/     # api.js (appels TMDB)
+├── services/     # api.js (appels RAWG)
 └── css/          # Styles
 ```
 
 ## Améliorations prévues
 
-- Page de détail d'un film
+- Page de détail d'un jeu (description, plateformes, captures d'écran)
+- Filtres par genre et par plateforme
 - Pagination et recherche avec debounce
+- Fonctionnalité IA : recommandation de jeux similaires
 
 ## À propos
 
-Projet réalisé à partir d'un tutoriel React, puis personnalisé : design et palette de couleurs, gestion des erreurs, refactoring des appels API, séparation du contexte et du provider.
+Projet réalisé à partir d'un tutoriel React sur les films (API TMDB), puis adapté aux jeux vidéo avec l'API RAWG et personnalisé : design et palette de couleurs, gestion des erreurs, refactoring des appels API, séparation du contexte et du provider.
 
 ## Crédits
 
-Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.
+Données fournies par [RAWG](https://rawg.io), la plus grande base de données de jeux vidéo.

@@ -1,4 +1,4 @@
-.movie-card {
+.game-card {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -11,18 +11,18 @@
   flex-direction: column;
 }
 
-.movie-card:hover {
+.game-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
-.movie-poster {
+.game-poster {
   position: relative;
   aspect-ratio: 2/3;
   width: 100%;
 }
 
-.movie-poster img {
+.game-poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -38,7 +38,7 @@
   color: var(--text-muted);
 }
 
-.movie-overlay {
+.game-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -54,8 +54,8 @@
   padding: 1rem;
 }
 
-.movie-card:hover .movie-overlay,
-.movie-card:focus-within .movie-overlay {
+.game-card:hover .game-overlay,
+.game-card:focus-within .game-overlay {
   opacity: 1;
 }
 
@@ -86,7 +86,7 @@
   color: var(--pumpkin-spice);
 }
 
-.movie-info {
+.game-info {
   padding: 1rem;
   flex: 1;
   display: flex;
@@ -94,23 +94,23 @@
   gap: 0.5rem;
 }
 
-.movie-info h3 {
+.game-info h3 {
   font-size: 1rem;
   margin: 0;
   color: var(--white);
 }
 
-.movie-info p {
+.game-info p {
   color: var(--apricot-cream);
   font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  .movie-card {
+  .game-card {
     font-size: 0.9rem;
   }
 
-  .movie-info {
+  .game-info {
     padding: 0.75rem;
   }
 
